@@ -1,0 +1,95 @@
+-- DQL- Data Query Language
+-- o select não altera dados só lista
+-- select 
+create table pessoa(
+	id int generated always as identity	
+	,nome varchar(25) not null
+	,sobrenome varchar(25) not null
+	,idade int null
+	);
+
+
+insert into pessoa(
+	nome 
+	,sobrenome 
+	,idade 
+) 
+
+values(
+	'Teteus'
+	,'OLiveira'
+	,17
+);
+
+
+insert into pessoa (nome,sobrenome,idade) values ('Pedro', 'Henrique', 13);
+insert into pessoa (nome,sobrenome,idade) values ('Karen', 'Caroline', 21);
+insert into pessoa (nome,sobrenome,idade) values ('Andy', 'Andy', 5);
+insert into pessoa (nome,sobrenome,idade) values ('Amanda', 'Ra', 20);
+
+
+select 
+	id
+	,nome
+	,sobrenome
+	,idade
+from pessoa;
+-- obedece a ordem que é colocada
+
+select 
+	*
+from pessoa;	
+
+--filtros
+select 
+*
+from pessoa 
+where id = 3 or id 4;select 
+*
+from pessoa 
+where id = 3 or id 4
+
+-- passar n0 ' ' o conteudo como esta na tabela
+
+select 
+*
+from pessoa 
+where sobrenome = 'Alves';
+
+select 
+*
+from pessoa 
+where sobrenome like 'Pr%';
+-- sobrenomes que começam com pr e ignora o resto
+
+select 
+*
+from pessoa 
+where sobrenome like '%a';
+-- sobrenomes que terminam com alter 
+
+select 
+*
+from pessoa 
+where nome like '%a%';
+--todas as pessoas que tem a no nome em qualquer posição
+
+
+-- quando tiver mais tabelas
+
+select 
+	p.nome as n
+	--altera como é exibido na tabela
+from pessoa as p
+where p.nome like %a% and p.idade >10;
+
+select 
+	concat (p.nome, '  ', p.sobrenome) as nome_completo
+from pessoa as p 
+where p.nome like '%a%' and p.idade > 10;
+
+	
+select 
+	concat(p.nome, '  ', p.sobrenome) as "Nome Completo"
+from pessoa as p 
+where p.nome like '%a%' and p.idade > 10;

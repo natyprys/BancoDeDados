@@ -1,0 +1,34 @@
+-- DML - Data Manipulation Language
+-- insert , update , delete
+
+
+--insert
+-- inserir dados
+-- cito os campos que são not null
+
+insert into pessoas(
+	nome 
+	,sobrenome 
+	,idade 
+) 
+
+values(
+	'nome1'
+	,'sobrenome1'
+	,3
+
+);
+
+-- valor precisa corresponder ao dado, independente da ordem que for passada
+-- posso alterar varios valores- como por exemplo
+-- where id > 2 and id < 4
+ 
+update pessoas 
+--set para dizer que campos eu quero alterar.Tenho que dizer a linha
+	set 
+		nome = 'jojo'
+		where id = 3;
+		--para um especifico. Quando quiser fazer para o campo n utilizamos o where
+	
+delete from pessoa
+	where id =2;

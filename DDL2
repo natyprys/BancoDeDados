@@ -1,0 +1,17 @@
+alter table pessoas 
+add column endereco varchar(200) not null;
+
+alter table pessoas 
+add column id int generated always as identity;
+-- generated always- sempre vai gerar, by default-não deixa inserir outro valor, mas posso escolher um valor
+-- generated para gerar um valor automaticamente
+
+alter table pessoas 
+add column cpf varchar(20) not null default '000.000.000-00';
+-- para os dados já salvos no registros é colocado o valor default
+-- usar aspas simples
+
+
+alter table pessoas 
+drop column endereco;
+-- para deletar a coluna e seus registros

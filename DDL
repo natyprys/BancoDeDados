@@ -1,0 +1,27 @@
+--SQL (manipular banco de dados)
+-- existem 5 categorias de comandos do SQL
+-- Vamos usar o DDL- Data defenition language- Linguagem de Definição de dados
+-- create, alter e drop (tudo envolvendo tabelas)
+
+-- TABELA- definição/estrutura onde os dados serão armazenados
+-- A tabela é formada por linhas e colunas
+-- Geralmente o padão de escrita é tudo maiusculo
+
+--nome varchar(número de caracteres maximos com espaços brancos)
+-- not null- não pode ter espaços vazios é obrigatório o preenchimento dela
+
+create table PESSOAS (
+	id int generated always as identity	
+	,nome varchar(25) not null
+	,sobrenome varchar(25) not null
+	,idade int null
+	);
+	
+create table livros (
+	titulo varchar(25) not null
+	,autor varchar(25) not null
+	,ano_publicacao int null
+	);
+	
+
+drop table pessoas; 
