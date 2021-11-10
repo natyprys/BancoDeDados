@@ -1,0 +1,40 @@
+create table produto(
+	id int primary key generated always as identity
+	,nome varchar(50) not null
+	,descricao varchar(100) not null
+	,codigo varchar(30) not null
+	,preco int not null
+);
+
+
+create table categoria(
+	id_categoria int primary key generated always as identity
+	,nome varchar(50) not null
+	,descricao varchar(100) null
+);
+
+create table carro (
+	id int primary key generated always as identity
+	,modelo varchar(50) not null
+	,marca varchar(50) not null
+	);
+	
+alter table produto (
+	drop column codigo
+)
+
+
+alter table carro
+	add column chassi varchar not null
+	,add column ano int not null;
+
+
+drop table carro ;
+
+
+alter table produto 
+	add column categoria_id int not null
+	,add constraint fk_categoria foreign key(categoria_id) references categoria(id_categoria);
+-- Constraints, ou Restrições, são regras específicas aplicadas nas colunas de uma tabela, ou na tabela em si.
+
+
