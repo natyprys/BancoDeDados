@@ -1,0 +1,58 @@
+create table produto(
+	id int primary key generated always as identity
+	,nome varchar(50) not null
+	,descricao varchar(100) not null
+	,codigo varchar(30) not null
+	,preco int not null
+);
+
+insert into produto (nome,descricao,codigo,preco) values ('panela','cozinha','100','250');
+insert into produto (nome,descricao,codigo,preco) values ('televisao','eletronicos','200','3500');
+insert into produto (nome,descricao,codigo,preco) values ('tapete','banheiro','300','60');
+insert into produto (nome,descricao,codigo,preco) values ('travesseiro','quarto','400','35');
+insert into produto (nome,descricao,codigo,preco) values ('sofa','sala','500','2060');
+insert into produto (nome,descricao,codigo,preco) values ('fogao','cozinha','600','600');
+
+
+create table categoria(
+	id_categoria int primary key generated always as identity
+	,nome varchar(50) not null
+	,descricao varchar(100) null
+);
+
+insert into categoria (nome,descricao) values ('cozinha', 'categorias da casa');
+insert into categoria (nome,descricao) values ('sala', 'categorias da casa');
+insert into categoria (nome,descricao) values ('quarto', 'categorias da casa');
+
+
+
+create table carro (
+	id int primary key generated always as identity
+	,modelo varchar(50) not null
+	,marca varchar(50) not null
+	);
+	
+
+update produto 
+	set 
+	descricao = 'coisas da cozinha'
+	where nome = 'panela';
+	
+
+update produto 
+	set 
+	descricao = 'coisas do quarto'
+	where nome = 'travesseiro';	
+
+
+delete from produto 
+	where nome = 'sofa';
+	
+delete from categoria 
+	where nome = 'sala';
+	
+
+update produto 
+	set 
+	preco = preco -1
+	where preco>1;

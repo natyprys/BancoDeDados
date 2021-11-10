@@ -38,3 +38,4 @@ alter table produto
 -- Constraints, ou Restrições, são regras específicas aplicadas nas colunas de uma tabela, ou na tabela em si.
 
 
+-- constraint nome_da_restricao tipo_restricao (onde_quero_aplicar) references tabela_referencia( tabela_referencia)
