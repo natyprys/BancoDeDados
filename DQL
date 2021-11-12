@@ -91,5 +91,8 @@ where p.nome like '%a%' and p.idade > 10;
 	
 select 
 	concat(p.nome, '  ', p.sobrenome) as "Nome Completo"
+-- aspas duplas no sentido de renomear	
 from pessoa as p 
 where p.nome like '%a%' and p.idade > 10;
+
+

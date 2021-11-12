@@ -1,0 +1,23 @@
+--if
+
+
+
+begin transaction;
+	declare quantidade as INT;
+
+	insert into produto (nome,descricao,codigo,preco)
+	values ('headset', 'computador', '2523535', 300);
+
+	savepoint inserindo_headset;	
+
+	insert into produto (nome,descricao,codigo,preco)
+	values ('fone', 'computador', '2323355', 20);
+	
+
+	set quantidade = select count(id) from produto;
+	if quantidade > 4 then
+		rollback to inserindo_headset;
+	end if;
+
+commit;
+end;

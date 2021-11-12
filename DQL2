@@ -1,0 +1,28 @@
+create table pessoa3 (
+	id int generated always as identity
+	,nome varchar(75) not null
+	,sobrenome varchar(55) not null
+	,idade int null
+	,endereco_id int not null
+	,constraint fk_endereco foreign key (endereco_id) references endereco(id)
+	);
+	
+
+create table endereco(
+	id int generated always as identity
+	,logradouro varchar(50) not null
+	,numero varchar(20) not null
+	,complemento varchar(30) null
+	,bairro varchar(50) not null
+	,cidade varchar(50) not null
+	,cep varchar(50) not null
+);
+
+
+select * from pessoa3;
+select * from endereco; 
+
+insert into pessoa3 (nome,sobrenome,idade) values ('Amanda', 'Ra', 20);
+insert into endereco (logradouro,numero,complemento,bairro,cidade,cep) values ('quadra 06', 'lote 15', 'casa 1', 'Setor Leste', 'Gama', '7979-3333');
+
+

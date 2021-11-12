@@ -1,0 +1,41 @@
+-- DTL = Data Transaction Language
+-- Savepoint e Rollback
+
+begin transaction;
+reate table pessoa2(
+		id int primary key generated always as identity,
+		nome varchar (50) not null,
+		sobrenome varchar (150) null
+	);
+	-- ponto de backup
+	savepoint criacao_categoria;
+
+	create table categoria2(
+	id int primary key generated always as identity,
+	nome varchar(50) not null,
+	descricao varchar (150) null
+	) ;
+	
+
+	rollback to criacao_categoria;
+commit;
+end;
+
+
+begin transaction;
+	insert into pessoa2 (nome,sobrenome)
+	values('jojo','caca');
+
+	savepoint inserindo_jojo;
+
+	insert into pessoa2 (nome,sobrenome)
+	values ('chimba,'joal');
+
+	rollback to inserindo_jojo;
+
+commit;
+end;
+
+ -- só é salvo ate o savepoint (chimba n será salvo)
+
+	

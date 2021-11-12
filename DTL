@@ -1,0 +1,18 @@
+-- DTL = data transaction language
+
+begin transaction;
+
+	create table pessoa2(
+		id int primary key generated always as identity,
+		nome varchar (50) not null,
+		sobrenome varchar (150) null
+	);
+
+	create table categoria2(
+	id int primary key generated always as identity,
+	nome varchar(50) not null,
+	descricao varchar (150) null
+	) ;
+	
+commit;
+end;
