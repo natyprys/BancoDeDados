@@ -1,0 +1,20 @@
+--Crie uma tabela Carros com id, marca e modelo. 
+
+drop table carro;
+
+begin transaction;
+	create table carro (
+			id int primary key generated always as identity
+			,modelo varchar(50) not null
+			,marca varchar(50) not null
+			);
+
+		insert into carro (modelo,marca) values ('Uno','Fiat');
+	 	insert into carro (modelo,marca) values ('C4','Citroen');
+		
+		savepoint criacao_carro;
+		 ---
+		rollback to criacao_carro;
+
+commit;
+end;
